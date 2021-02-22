@@ -12,3 +12,4 @@ tags:
 [Linux终端/图形界面与桌面环境](https://www.biaodianfu.com/linux-desktop-environment.html)
 [揭开Wayland的面纱（一）：X Window的前生今世](https://cloud.tencent.com/developer/article/1442279)
 [揭开Wayland的面纱（二）：Wayland应运而生](https://cloud.tencent.com/developer/article/1442281?from=article.detail.1442279)
+
