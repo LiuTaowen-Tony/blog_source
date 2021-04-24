@@ -76,3 +76,29 @@ Fixing a L
 ```
 terms : constant in L | variable in L
 ```
+
+Signature 是词汇表
+
+L-formula 是合法的逻辑命题
+
+L-Structure （一般称为M model）是一个语义系统，是一幅图，我把它理解成一个在 Signature-L 下包含所有真命题的集合。
+
+Soundness 和 Completeness 是有关 “语义系统” 和 “句法系统”的。
+
+Soundness 所有的可证明的都是真的。
+
+Completeness 所有真命题都是可证明的。
+
+Consistency 是说 不能同时证明 A 和 非A。
+
+哥德尔不完备定理是说 。。 不能同时满足 Completeness 和 Consistency。
+
+![截屏2021-04-13 下午5.10.59](/Users/tony/Library/Application Support/typora-user-images/截屏2021-04-13 下午5.10.59.png)
+
+这页 ppt 给我的感觉是怎么把 一阶逻辑转化成命题逻辑。通过 h 函数指定变量的值。
+
+不对，这里是用 h 指明了 free variable 的值。而不是用 h 给 \forall x 赋值![截屏2021-04-13 下午5.18.32](/Users/tony/Library/Application Support/typora-user-images/截屏2021-04-13 下午5.18.32.png)
+
+这里就是用 h 指明 bounded variable 的值，但是给我感觉非常不好，它在用表达能力强的自然语言定义表达能力弱的一阶逻辑。
+
+g = sub x h 的意思是 g 只在指定 x 的值上有所不同![截屏2021-04-13 下午5.28.05](/Users/tony/Library/Application Support/typora-user-images/截屏2021-04-13 下午5.28.05.png)
