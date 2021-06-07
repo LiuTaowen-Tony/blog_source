@@ -4,7 +4,7 @@ date: 2021-04-06 21:12:59
 tags:
 ---
 
-Java Generic 更像一种类型，它只能作用在 Object （这里的 Object 更像指针）上。如果有需要用到某类型的方法的时候，通过 down cast 和虚表机制来寻找函数。因为 Java 用了 Object 来表示指针，所以在编译的时候，我们已经知道 size 信息，所以我们只编译出一份代码。 
+Java Generic 更像一种类型，它只能作用在 Object （这里的 Object 更像指针）上。如果有需要用到某类型的方法的时候，通过 down cast 和虚表机制来寻找函数。因为 Java 用了 Object 来表示指针，所以在编译的时候，<del>我们已经知道 size 信息</del>，所以我们只编译出一份代码。 
 
 
 
