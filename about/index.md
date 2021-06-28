@@ -7,3 +7,9 @@ Layout: about
 # 刘涛闻 Tony
 
 这是我的个人博客
+
+
+
+## 友情链接
+
+https://bbbob.win/
