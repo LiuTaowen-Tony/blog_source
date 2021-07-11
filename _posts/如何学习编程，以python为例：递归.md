@@ -1,5 +1,5 @@
 ---
-title: 如何学习编程，以python为例：递归
+title: 如何学习编程，以python为例：递归函数
 date: 2021-07-11 20:20:37
 tags:
 ---
@@ -10,39 +10,60 @@ tags:
 
 接下来我将用几个例子展示这个观点。
 
-之前我们学过怎么处理简单的过程抽象：把过程组织到函数里。
+之前我们学习了用函数进行抽象。现在我们学习用“没定义完“的函数进行抽象。
 
-比如计算一个数的绝对值：
 
-```python
-def find_abs(value):
-  if value >= 0:
-    return value
-  else:
-    return - value
+
+之前，我们可以很容易描述一些层级性的事物。
+
+比如根据人名生成有关体重的健康建议。
+
+我们先通过人名在数据库中获取体重和身高，然后又根据身高体重计算 BMI，最后通过 BMI 生成 BMI category 和 建议。
+
+我们可以认为有这样一张图，表示各种函数的层级
+
+```
+generate_report_by_name
+
+===== based upon =====
+
+get_weight_by_name
+get_height_by_name
+check_BMI_category_by_weight_height
+get_suggestion_by_BMI_category
 ```
 
-通过小的函数我们可以构建一些大的函数
+
+
+```
+check_BMI_category_by_weight_height
+
+===== based upon =====
+
+check_BMI_category_by_BMI
+find_BMI
+```
+
+
+
+现在我们来做一些层级性不是那么明显的事
+
+观察下面几个函数
 
 ```python
-def find_pow_3(value):
+def pow_2(value):
+  return value * value
+
+def pow_3(value):
 	return value * value * value
 
-def find_pow_3_then_abs(value):
+def pow_4(value):
   return find_abs(find_pow_3(value))
 ```
 
 
 
-我们可以很容易描述一些顺序性的事物。
-
-顺序性的事物：
-
-如果想要煮泡面：
-
-1. 烧水
-2. 放面条
-3. 放调料
+1. 
 
 
 
@@ -88,10 +109,16 @@ def pow(x, n):
 
 
 
+开根号的算法
+
 首先是怎么对一个数开根号。我们可以用二分法
 
 ```python
 def sqrt(number : float) -> float:
   def sqrt_()
 ```
+
+
+
+斐波那契数列
 
