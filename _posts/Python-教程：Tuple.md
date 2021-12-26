@@ -4,43 +4,15 @@ date: 2021-07-04 13:16:09
 tags:
 ---
 
-> 这是一个新系列，是我从新的视角理解 Python，这个系列的时间会比较长
->
-> 这是这个系列的第一篇内容，前置知识有 Python 中的基本类型及其运算， Python 中函数的定义与使用， Python 控制流
-
-Tuple 是一种可以把数据复合起来的方法。
-
-很多时候我们希望表示结构化的数据，比如我们想表示一个分数，那么它包含一个分母和一个分子。这时，基础数据类型是不足以表示这样的概念的。
-
-我们就需要用一个容器包括一个整数型的分母和一个整数型的分子。Python 中 Tuple 是一种非常便利的表示复合数据的方式。
-
-牛顿迭代法
-
-斐波那契
+很多时候我们希望表示结构化的数据，比如我们想表示一个分数，那么它包含一个分母和一个分子。这时，基础数据类型是不足以表示这样的概念的。但是没关系，一个分数可以用两个整数表示。
 
 
 
-我认为还是不要涉及高阶函数比较好，python 列表推导式是更好的方式
-
-高阶函数
-
-```python
-def sum(start, end, function):
-  sum = 0
-  for i in range(start, end):
-    sum += function(i)
-  return sum
-
-用 list 写
-
-reduce(__add__, [function(i) for i in range(start, end)])
-```
-
-高阶函数还是有用的，可以用作回调函数
+这里用了一些 python 的语法糖，但是其他语言中都有类似的概念。
 
 
 
-
+现在我们用两个整数的复合表示分数
 
 
 ```python
@@ -50,30 +22,64 @@ reduce(__add__, [function(i) for i in range(start, end)])
 
 
 
-括号表达式是 tuple 的语法糖，他表示生成一个 tuple 对象，并且提供一个标签使用户可以访问这个对象。（这里是内存模型的内容，我的看法是不要在这里介绍内存模型，现从纯概念上介绍 数学上的编程模型，之后再慢慢介绍计算机上的表示）
+对分数进行取值，取分母和分子。
+
+```python
+numerator, denominator = (3, 5)
+# numerator = 3
+# denominator = 5
+```
 
 
-可以表示分数之后我们可以定义分数运算
 
 python 并不自带分数计算方法，不过没有关系，因为python 提供了整数运算方法，通过组合组合已有的运算，我们可以定义分数运算
 
-不过在这之前，我们可以需要定义分数的构造函数和取值函数。
+```python
+def frac_add(a, b):
+  numer_a, denom_a = a
+  numer_b, denom_b = b
+  numer_new = numer_a * denom_b + numer_b * denom_a
+  denom_new = denom_a * denom_b
+  return (numer_new, denom_new)
+```
+
 
 
 ```python
-def make_frac(numer, denom):
-    return (numer, denum)
-
-def get_denum(frac):
-    return frac[0]
-    
-def get_numer(frac):
-    return frac[1]
+def frac_mul(a, b):
+  numer_a, denom_a = a
+  numer_b, denom_b = b
+  numer_new = numer_a * numer_b
+  denom_new = denom_a * denom_b
+  return (numer_new, denom_new)
 ```
 
-阿哈细心的你可能已经看见我犯了一个错误，但是实际上我是故意的。因为这样我可以向你展示使用 构造器 和 取值函数的好处。
 
-如果我没有用构造器和取值函数那么我需要修改每一个地方。不过这里我只需要修改取值函数。
+
+```python
+a = (3, 5)
+b = (2, 4)
+
+frac_mul(a, b) # (6, 20)
+```
+
+不要忘了我们之前学过的函数契约和替换模型。
+
+
+
+### 数据复合的抽象
+
+现在我们已经学过怎么复合简单的数据了。现在我们在数据复合的基础上进行抽象。
+
+我们现在希望定义一个二维坐标上的点。和之前类似，我们可以用tuple表示
+
+```python
+
+```
+
+
+
+
 
 而且我可以轻易切换笛卡尔坐标和极坐标。我们只需要重新定义一组新的取值函数即可。
 
@@ -92,44 +98,6 @@ def mul_frac(num1, num2):
 
 这样太麻烦了，所以我们希望自动生成取值函数。
 
-没关系 named tuple 可以帮到你
-
-现在我们介绍dict，这是一种非常快的结构，但是有时候非常令人困惑。
-
-面向对象的vector
-
-我们还可以定义一个小小的矩阵运算库，这里我可以向你展示动态绑定的威力。
-
-之前我们只是一个一个元素的进行运算，无疑，这样的效率太低了。我们需要取很多名字。我们现在介绍数据结构，这样我们就不用对每一个事情都起一个名字了。
-
-python 中提供了四种容器。
-list 和 tuple 类似 现在我们暂时不做区别
-dict 留到之后再讲
-
-替换模型 和 纯函数
-
-更高效的斐波那契
-
-用函数隔离状态 用类隔离状态
-
-我建议使用
-
-可变性
-
-惰性运算
-
-更高效的斐波那契
-
-用python 解析字符串
 
 
-##内容
-
-前面介绍过 怎么在 python 中生成一个 tuple 对象，这里介绍 tuple 对象的内存表示
-
-```python
-a = (3, 5) 
-```
-
-实际在内存中生成了两个整数对象，和一个 tuple 对象，其中 tuple 对象可以访问 两个整数对象的值，a 中实际储存的是一个标签，通过这个标签，我们可以访问 a 中的两个整数对象
-
+这里是为了接下来面向对象编程作准备。
