@@ -10,11 +10,7 @@ tags:
 
 接下来我将用几个例子展示这个观点。
 
-
-
 之前，我们介绍了怎么利用函数来 “签订契约”，现在我们介绍 “信任契约“ 带来的魔法。
-
-
 
 之前，我们可以很容易描述一些层级性的事物。
 
@@ -35,8 +31,6 @@ check_BMI_category_by_weight_height
 get_suggestion_by_BMI_category
 ```
 
-
-
 ```
 check_BMI_category_by_weight_height
 
@@ -45,8 +39,6 @@ check_BMI_category_by_weight_height
 check_BMI_category_by_BMI
 find_BMI
 ```
-
-
 
 现在我们来做一些层级性不是那么明显的事
 
@@ -57,19 +49,11 @@ def pow_2(value):
   return value * value
 
 def pow_3(value):
-	return value * value * value
+    return value * value * value
 
 def pow_4(value):
-  return find_abs(find_pow_3(value))
+  return value * value * value * value
 ```
-
-
-
-1. 
-
-
-
-但是有些时候我们没办法把解决方案完全描述出来
 
 比如我们介绍了怎么求平方，怎么求三次方，怎么求四次方，但是如果想求五次方，我是不是还要定义另一个函数呢。我当然可以，但是观察之前我们定义的各种求次方的函数，我们发现很多地方是重复的。
 
@@ -91,25 +75,21 @@ def pow(x, n):
 1. 我们少定义了很多函数
 2. 我们可以应对更多的用户输入，很多时候我们是不知道用户需要什么的
 
-比如如果我们需要计算一个复数的n次根，那么任意次方就是必须的，而不是可选的。
-
-
+比如之前如果用户想求一个数的 5 次幂，我们的程序就无法完成需求。然而新的程序就可以处理任意数的任意次幂。
 
 另外，我们还可以用稍微更快一点算法
 
 ```python
 def pow(x, n):
-	if n % 2 == 0: # 是2的倍数
-   	temp = pow(x, n / 2)
+    if n % 2 == 0: # 是2的倍数
+       temp = pow(x, n / 2)
     return temp * temp
-  
+
   temp = pow(x, (n - 1) / 2)
   return temp * temp * x
 ```
 
 理论上，这是最快的算法
-
-
 
 开根号的算法
 
@@ -120,7 +100,4 @@ def sqrt(number : float) -> float:
   def sqrt_()
 ```
 
-
-
 斐波那契数列
-
